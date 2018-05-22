@@ -1,5 +1,4 @@
-package cn.edu.gdmec.android.newsdemo;
-
+package cn.edu.gdmec.android.newsdemo.News;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -11,6 +10,10 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.edu.gdmec.android.newsdemo.MyAdapter;
+import cn.edu.gdmec.android.newsdemo.NewsListFragment;
+import cn.edu.gdmec.android.newsdemo.R;
 
 public class NewsFragment extends Fragment {
 

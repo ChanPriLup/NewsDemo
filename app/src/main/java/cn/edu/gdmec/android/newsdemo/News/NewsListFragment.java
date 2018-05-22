@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.newsdemo;
+package cn.edu.gdmec.android.newsdemo.News;
 
 
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import cn.edu.gdmec.android.newsdemo.R;
 
-import static cn.edu.gdmec.android.newsdemo.NewsFragment.NEWS_TYPE_JOKES;
-import static cn.edu.gdmec.android.newsdemo.NewsFragment.NEWS_TYPE_NBA;
-import static cn.edu.gdmec.android.newsdemo.NewsFragment.NEWS_TYPE_TOP;
+import static cn.edu.gdmec.android.newsdemo.News.NewsFragment.NEWS_TYPE_JOKES;
+import static cn.edu.gdmec.android.newsdemo.News.NewsFragment.NEWS_TYPE_NBA;
+import static cn.edu.gdmec.android.newsdemo.News.NewsFragment.NEWS_TYPE_TOP;
 
 
 /**

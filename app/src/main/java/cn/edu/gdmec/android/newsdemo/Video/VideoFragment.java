@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.newsdemo;
+package cn.edu.gdmec.android.newsdemo.Video;
 
 
 import android.os.Bundle;
