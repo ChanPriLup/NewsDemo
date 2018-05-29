@@ -5,4 +5,8 @@ package cn.edu.gdmec.android.newsdemo.News.Model;
  */
 
 public interface INewsModel {
+    void loadNews(String hostType,
+                  int startPage,
+                  String id,
+                  IOnLoadListener iOnLoadListener);
 }

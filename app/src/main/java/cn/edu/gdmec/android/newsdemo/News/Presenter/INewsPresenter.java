@@ -5,4 +5,5 @@ package cn.edu.gdmec.android.newsdemo.News.Presenter;
  */
 
 public interface INewsPresenter {
+    void loadNews(int type, int startPage);
 }

@@ -13,8 +13,12 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener{
+import cn.edu.gdmec.android.newsdemo.Movie.MovieFragment;
+import cn.edu.gdmec.android.newsdemo.News.NewsFragment;
+import cn.edu.gdmec.android.newsdemo.Video.VideoFragment;
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        ViewPager.OnPageChangeListener {
     private View view_status;
     private ImageView iv_title_news;
     private ImageView iv_title_movie;
@@ -26,15 +30,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#ffce3d3a"));
         }
 
         initView();
         initContentFragment();
+
     }
 
-    private void initView(){
+
+    private void initView() {
         view_status = (View) findViewById(R.id.view_status);
         iv_title_news = (ImageView) findViewById(R.id.iv_title_news);
         iv_title_movie = (ImageView) findViewById(R.id.iv_title_movie);
@@ -45,31 +52,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         iv_title_news.setOnClickListener(this);
         iv_title_movie.setOnClickListener(this);
         iv_title_video.setOnClickListener(this);
+
     }
 
-    private void initContentFragment(){
+    private void initContentFragment() {
+
         ArrayList<Fragment> mFragmentList = new ArrayList<>();
         mFragmentList.add(new NewsFragment());
         mFragmentList.add(new MovieFragment());
         mFragmentList.add(new VideoFragment());
-        MyAdapter adapter = new MyAdapter(getSupportFragmentManager(), mFragmentList);
+        MyAdapter adapter = new MyAdapter(getSupportFragmentManager(),
+                mFragmentList);
         vp_content.setAdapter(adapter);
         vp_content.setOffscreenPageLimit(2);
         vp_content.addOnPageChangeListener(this);
+
         setSupportActionBar(toolbars);
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
+        if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
         }
+
         setCurrentItem(0);
     }
 
-    private void setCurrentItem(int i){
+    private void setCurrentItem(int i) {
         vp_content.setCurrentItem(i);
-        iv_title_news.setSelected(false);
         iv_title_movie.setSelected(false);
         iv_title_video.setSelected(false);
-        switch (i){
+        iv_title_news.setSelected(false);
+        switch (i) {
             case 0:
                 iv_title_news.setSelected(true);
                 break;
@@ -81,30 +93,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.iv_title_news:
-                if (vp_content.getCurrentItem() != 0){
-                    setCurrentItem(0);
-                }
-                break;
-            case R.id.iv_title_movie:
-                if (vp_content.getCurrentItem() != 1){
-                    setCurrentItem(1);
-                }
-                break;
-            case R.id.iv_title_video:
-                if (vp_content.getCurrentItem() != 2){
-                    setCurrentItem(2);
-                }
-
-        }
-    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
     }
 
     @Override
@@ -115,5 +106,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_title_news:
+                if (vp_content.getCurrentItem() != 0) {
+                    setCurrentItem(0);
+                }
+                break;
+            case R.id.iv_title_movie:
+                if (vp_content.getCurrentItem() != 1) {
+                    setCurrentItem(1);
+                }
+                break;
+            case R.id.iv_title_video:
+                if (vp_content.getCurrentItem() != 2) {
+                    setCurrentItem(2);
+                }
+                break;
+        }
     }
 }

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.gdmec.android.newsdemo.MyAdapter;
-import cn.edu.gdmec.android.newsdemo.NewsListFragment;
 import cn.edu.gdmec.android.newsdemo.R;
 
 public class NewsFragment extends Fragment {
@@ -41,15 +40,17 @@ public class NewsFragment extends Fragment {
         vp_news.setOffscreenPageLimit(2);
         tl_news.setupWithViewPager(vp_news);
     }
-
-    private void setViewPager(){
-        fragments.add(NewsListFragment.newsInstance(NEWS_TYPE_TOP));
-        fragments.add(NewsListFragment.newsInstance(NEWS_TYPE_NBA));
-        fragments.add(NewsListFragment.newsInstance(NEWS_TYPE_JOKES));
+    private void setViewPager() {
+        fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_TOP));
+        fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_NBA));
+        fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_JOKES));
         fragmentTitles.add("头条");
         fragmentTitles.add("NBA");
         fragmentTitles.add("笑话");
-        MyAdapter adapter = new MyAdapter(getChildFragmentManager(),fragments, fragmentTitles);
+        MyAdapter adapter=new MyAdapter(getChildFragmentManager(),
+                fragments,fragmentTitles);
         vp_news.setAdapter(adapter);
+
     }
+
 }
