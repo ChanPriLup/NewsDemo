@@ -14,10 +14,11 @@ public class MyAdapter extends FragmentPagerAdapter {
 
     public MyAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
-        this.fragments = fragments;
+        this.fragments=fragments;
     }
 
-    public MyAdapter(FragmentManager fm,List<Fragment> fragments, List<String> fragmentTitles) {
+    public MyAdapter(FragmentManager fm, List<Fragment> fragments,
+                             List<String> fragmentTitles) {
         super(fm);
         this.fragments = fragments;
         this.fragmentTitles = fragmentTitles;
@@ -40,11 +41,10 @@ public class MyAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if (fragmentTitles != null){
+        if (fragmentTitles != null) {
             return fragmentTitles.get(position);
-        }else{
+        } else {
             return "";
         }
-
     }
 }

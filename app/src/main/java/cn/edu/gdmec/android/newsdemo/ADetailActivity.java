@@ -1,20 +1,17 @@
 package cn.edu.gdmec.android.newsdemo;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.app.Activity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-
-/**
- * Created by apple on 18/5/29.
- */
+import android.widget.ProgressBar;
 
 public class ADetailActivity extends Activity {
 
@@ -85,4 +82,3 @@ public class ADetailActivity extends Activity {
         return super.onKeyDown(keyCode, event);
     }
 }
-
