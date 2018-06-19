@@ -36,6 +36,16 @@ public class ItemMovieOnAdapter extends RecyclerView.Adapter<ItemMovieOnAdapter.
     public void setData(List<MoviesBean.SubjectsBean> objects){
         this.objects = objects;
     }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position + 1 == getItemCount()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -126,6 +136,12 @@ public class ItemMovieOnAdapter extends RecyclerView.Adapter<ItemMovieOnAdapter.
             tvMovieOnGenres = (TextView) view.findViewById(R.id.tv_movie_on_genres);
             tvMovieOnRating = (TextView) view.findViewById(R.id.tv_movie_on_rating);
             rvMovieOn = (RelativeLayout) view.findViewById(R.id.rl_movie_on);
+        }
+    }
+    protected class FooterHolder extends RecyclerView.ViewHolder {
+
+        public FooterHolder(View itemView) {
+            super(itemView);
         }
     }
 }
