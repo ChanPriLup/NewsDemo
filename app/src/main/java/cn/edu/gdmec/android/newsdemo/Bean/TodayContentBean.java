@@ -1392,4 +1392,3 @@ public class TodayContentBean {
         }
     }
 }
-
