@@ -1,6 +1,5 @@
 package cn.edu.gdmec.android.newsdemo.Movie.Presenter;
 
-
 import cn.edu.gdmec.android.newsdemo.Bean.MoviesBean;
 import cn.edu.gdmec.android.newsdemo.Movie.Model.IMoviesModel;
 import cn.edu.gdmec.android.newsdemo.Movie.Model.IOnLoadListener;
@@ -8,11 +7,10 @@ import cn.edu.gdmec.android.newsdemo.Movie.Model.MoviesModel;
 import cn.edu.gdmec.android.newsdemo.Movie.View.IMoviesView;
 
 /**
- * Created by apple on 18/6/5.
+ * Created by apple on 18/6/19.
  */
 
 public class MoviesPresenter implements IMoviesPresenter,IOnLoadListener {
-
     private IMoviesModel iMoviesModel;
     private IMoviesView iMoviesView;
 
@@ -29,20 +27,15 @@ public class MoviesPresenter implements IMoviesPresenter,IOnLoadListener {
     }
 
     @Override
-    public void fail(String throwable) {
-
-    }
-
-    /*@Override
     public void fail(Throwable throwable) {
         iMoviesView.hideDialog();
         iMoviesView.showErrorMsg(throwable);
-    }*/
+    }
 
 
     @Override
-    public void loadNews(String total) {
+    public void loadMovies(String total) {
         iMoviesView.showDialog();
-        iMoviesModel.loadNews(total,this);
+        iMoviesModel.loadMovies(total,this);
     }
 }

@@ -8,5 +8,5 @@ import cn.edu.gdmec.android.newsdemo.Bean.MoviesBean;
 
 public interface IOnLoadListener {
     void success(MoviesBean moviesBean);
-    void fail(String throwable);
+    void fail(Throwable throwable);
 }

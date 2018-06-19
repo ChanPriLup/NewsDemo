@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyAdapter extends FragmentPagerAdapter {
+public class MyAdapter extends FragmentPagerAdapter{
+
     private List<Fragment> fragments = new ArrayList<>();
     private List<String> fragmentTitles = new ArrayList<>();
 

@@ -19,27 +19,31 @@ public class NewsModel implements INewsModel {
 
     @Override
     public void loadNews(final String hostType, final int startPage, final String id,
-                         final IOnLoadListener iOnLoadListener) {
+                         final IOnLoadListener iNewsLoadListener) {
         RetrofitHelper retrofitHelper= new RetrofitHelper(Api.NEWS_HOST);
         retrofitHelper.getNews(hostType,id,startPage)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<NewsBean>() {
-                @Override
-                public void onCompleted() {
+                    @Override
+                    public void onCompleted() {
 
-                }
+                    }
 
                     @Override
                     public void onError(Throwable e) {
-                        iOnLoadListener.fail(e.getMessage());
+                        iNewsLoadListener.fail(e);
                     }
 
                     @Override
                     public void onNext(NewsBean newsBean) {
-                        iOnLoadListener.success(newsBean);
+                        if (startPage!=0){
+                            iNewsLoadListener.loadMoreSuccess(newsBean);
+                        }else {
+                            iNewsLoadListener.success(newsBean);
+                        }
+
                     }
                 });
-
     }
 }

@@ -16,7 +16,7 @@ import cn.edu.gdmec.android.newsdemo.R;
 
 public class NewsFragment extends Fragment {
 
-    public static final int NEWS_TYPE_TOP = 0;
+    public static final int NEWS_TYPE_TOP=0;
     public static final int NEWS_TYPE_NBA = 1;
     public static final int NEWS_TYPE_JOKES = 2;
     private List<Fragment> fragments = new ArrayList<>();
@@ -27,8 +27,7 @@ public class NewsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news,null);
+        return inflater.inflate(R.layout.fg_news, null);
     }
 
     @Override
@@ -37,9 +36,11 @@ public class NewsFragment extends Fragment {
         tl_news = (TabLayout) view.findViewById(R.id.tl_news);
         vp_news = (ViewPager) view.findViewById(R.id.vp_news);
         setViewPager();
+        //预加载界面数
         vp_news.setOffscreenPageLimit(2);
         tl_news.setupWithViewPager(vp_news);
     }
+
     private void setViewPager() {
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_TOP));
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_NBA));

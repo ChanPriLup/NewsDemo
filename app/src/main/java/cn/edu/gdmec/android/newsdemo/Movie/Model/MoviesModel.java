@@ -19,7 +19,7 @@ import rx.schedulers.Schedulers;
 public class MoviesModel implements IMoviesModel {
 
     @Override
-    public void loadNews( String total, final IOnLoadListener iOnLoadListener) {
+    public void loadMovies( String total, final IOnLoadListener iMoviesLoadListener) {
         RetrofitHelper retrofitHelper= new RetrofitHelper(Api.MOVIE_HOST);
         retrofitHelper.getMovies(total)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -32,26 +32,14 @@ public class MoviesModel implements IMoviesModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        iOnLoadListener.fail(e.getMessage());
+                        iMoviesLoadListener.fail(e);
                     }
 
                     @Override
                     public void onNext(MoviesBean moviesBean) {
-                        iOnLoadListener.success(moviesBean);
+                        iMoviesLoadListener.success(moviesBean);
                     }
                 });
-        /*retrofitHelper.getMovies(total).enqueue(new Callback<MoviesBean>() {
-            @Override
-            public void onResponse(Call<MoviesBean> call, Response<MoviesBean> response) {
-                iOnLoadListener.success(response.body());
-                Log.i("response", "onResponse: "+response.body());
-            }
-
-            @Override
-            public void onFailure(Call<MoviesBean> call, Throwable t) {
-                iOnLoadListener.fail(t);
-            }
-        });*/
     }
 
 }

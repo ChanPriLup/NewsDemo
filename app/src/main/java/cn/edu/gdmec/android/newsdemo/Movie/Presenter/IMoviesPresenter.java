@@ -5,5 +5,5 @@ package cn.edu.gdmec.android.newsdemo.Movie.Presenter;
  */
 
 public interface IMoviesPresenter {
-    void loadNews(String total);
+    void loadMovies(String total);
 }

@@ -5,5 +5,5 @@ package cn.edu.gdmec.android.newsdemo.Movie.Model;
  */
 
 public interface IMoviesModel {
-    void loadNews(String total, IOnLoadListener iOnLoadListener);
+    void loadMovies(String total, IOnLoadListener iMoviesLoadListener);
 }
